@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../pages/connectionStatus/home_connetions_status.dart';
+import '../pages/home/home_page.dart';
 
 class MarvelRoute extends StatelessWidget {
   const MarvelRoute({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class MarvelRoute extends StatelessWidget {
         WidgetBuilder builder;
         switch (settings.name) {
           case '/':
-            builder = (BuildContext context) => const HomeConnetionsStatus();
+            builder = (BuildContext context) => const HomePage();
             break;
           // case '/detail':
           //   builder = (BuildContext context) => const DetailPage();

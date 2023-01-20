@@ -8,7 +8,7 @@ class HomeController extends ChangeNotifier {
   final ScrollController scrollController = ScrollController();
   final MarvelRepository marvelRepository = MarvelRepositoryImp(DioServiceImp());
   int page = 0;
-  int pageSize = 40;
+  int pageSize = 20;
   List<Character> listCharacter = [];
 
   HomeController() {
@@ -21,7 +21,6 @@ class HomeController extends ChangeNotifier {
     ModelMarvel modelMarvel = await marvelRepository.getCharacters(limit: limit, offset: offset);
     listCharacter.addAll(modelMarvel.data.results);
     notifyListeners();
-    print('loadCurrentPage: $page limit: $limit offset: $offset');
   }
 
   loadNextPage() {
