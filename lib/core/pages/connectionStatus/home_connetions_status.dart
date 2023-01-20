@@ -16,25 +16,8 @@ class HomeConnetionsStatus extends StatefulWidget {
 }
 
 class _HomeConnetionsStatusState extends State<HomeConnetionsStatus> {
-  final MarvelRepository _marvelRepository = MarvelRepositoryImp(DioServiceImp());
-
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<ModelMarvel>(
-      future: _marvelRepository.getCharacters(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const HomeLoading();
-        }
-        if (snapshot.hasError) {
-          return HomeError(erromessage: snapshot.error.toString());
-        }
-        if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
-          return HomePage(marvel: snapshot.data);
-        } else {
-          return const HomeMesageError();
-        }
-      },
-    );
+    return const HomePage();
   }
 }

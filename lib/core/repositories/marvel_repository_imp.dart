@@ -8,8 +8,8 @@ class MarvelRepositoryImp implements MarvelRepository {
   MarvelRepositoryImp(this._dioService);
 
   @override
-  Future<ModelMarvel> getCharacters() async {
-    String url = ApiMarvel.getCharacters();
+  Future<ModelMarvel> getCharacters({required int limit, required int offset}) async {
+    String url = ApiMarvel.getCharacters(limit: limit, offset: offset);
     try {
       final response = await _dioService.getDio().get(url);
       return ModelMarvel.fromJson(response.data);
