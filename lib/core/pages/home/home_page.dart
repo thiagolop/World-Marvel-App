@@ -22,19 +22,29 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       extendBodyBehindAppBar: true,
         appBar: AppBar(
           elevation: 0,
-          title: Text('Marvel', style: GoogleFonts.lato(color: Colors.black, fontSize: 32, fontStyle: FontStyle.italic)),
+          title: Text('Marvel', style: GoogleFonts.lato(color: Colors.white, fontSize: 32, fontStyle: FontStyle.italic)),
           centerTitle: true,
           backgroundColor: Colors.transparent,
-          actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search, color: Colors.black))],
+          actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search, color: Colors.white))],
         ),
-        backgroundColor: Colors.white,
-        body: AnimatedBuilder(
-          animation: homeController,
-          builder: (context, child) {
-            return GridViewListWidget(homeController: homeController);
-          }
-        ));      
+        backgroundColor: Colors.black,
+        body: Stack(
+          children: [
+            const Positioned.fill(
+              child: Image(
+                image: AssetImage('assets/background2.jpg'),
+                fit: BoxFit.fill,
+              ),
+            ),
+            AnimatedBuilder(
+                animation: homeController,
+                builder: (context, child) {
+                  return GridViewListWidget(homeController: homeController);
+                }),
+          ],
+        ));
   }
 }

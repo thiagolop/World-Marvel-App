@@ -39,6 +39,7 @@ dependencies:
   dio: ^4.0.6
   google_fonts: ^3.0.1
   cached_network_image: ^3.2.3
+  top_snackbar_flutter: ^3.0.0+1
 
 dev_dependencies:
   flutter_test:
@@ -63,8 +64,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/background1.jpg
+    - assets/background2.jpg
+    - assets/background3.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

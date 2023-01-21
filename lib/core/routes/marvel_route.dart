@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../models/marvel_model.dart';
+import '../pages/character/info_character_page.dart';
 import '../pages/home/home_page.dart';
 
 class MarvelRoute extends StatelessWidget {
@@ -10,13 +12,14 @@ class MarvelRoute extends StatelessWidget {
       initialRoute: '/',
       onGenerateRoute: (RouteSettings settings) {
         WidgetBuilder builder;
+        final args = settings.arguments;
         switch (settings.name) {
           case '/':
             builder = (BuildContext context) => const HomePage();
             break;
-          // case '/detail':
-          //   builder = (BuildContext context) => const DetailPage();
-          //   break;
+          case '/character':
+            builder = (BuildContext context) => InfoCharacterPage(character: args as Character);
+            break;
           default:
             throw Exception('Invalid route: ${settings.name}');
         }

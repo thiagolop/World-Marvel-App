@@ -8,7 +8,7 @@ class HomeController extends ChangeNotifier {
   final ScrollController scrollController = ScrollController();
   final MarvelRepository marvelRepository = MarvelRepositoryImp(DioServiceImp());
   int page = 0;
-  int pageSize = 20;
+  int pageSize = 90;
   List<Character> listCharacter = [];
 
   HomeController() {
@@ -32,6 +32,5 @@ class HomeController extends ChangeNotifier {
     if (scrollController.offset == scrollController.position.maxScrollExtent) {
       loadNextPage();
     }
-
   }
 }
