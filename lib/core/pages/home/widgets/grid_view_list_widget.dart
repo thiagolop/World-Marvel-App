@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:marvelapk01/core/controllers/home_controller.dart';
 
 
-import '../../../models/marvel_model.dart';
+import '../../../models/marvel_model_characters.dart';
 
 class GridViewListWidget extends StatelessWidget {
   const GridViewListWidget({Key? key, required this.homeController}) : super(key: key);

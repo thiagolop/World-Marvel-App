@@ -9,13 +9,12 @@ class ApiMarvel {
   static const String _events = 'events';
   static const String _stories = 'stories';
 
-
   static String getCharacters({required int limit, required int offset}) {
     return '$_baseUrl/$_characters?limit=$limit&offset=$offset&ts=$_ts&apikey=$_publicKey&hash=$_hash';
   }
 
-  static String getComics() {
-    return '$_baseUrl/$_comics?ts=$_ts&apikey=$_publicKey&hash=$_hash';
+  static String getComics({required String id}) {
+    return '$_baseUrl/$_characters/$id/$_comics?ts=$_ts&apikey=$_publicKey&hash=$_hash';
   }
 
   static String getSeries() {

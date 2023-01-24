@@ -1,5 +1,5 @@
-class ModelMarvel {
-  ModelMarvel({
+class ModelMarvelCharacters {
+  ModelMarvelCharacters({
     required this.code,
     required this.status,
     required this.copyright,
@@ -16,7 +16,7 @@ class ModelMarvel {
   late final String etag;
   late final Data data;
 
-  ModelMarvel.fromJson(Map<String, dynamic> json) {
+  ModelMarvelCharacters.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     status = json['status'];
     copyright = json['copyright'];
