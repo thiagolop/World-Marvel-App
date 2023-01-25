@@ -27,16 +27,15 @@ class MarvelModelComics {
   }
 
   Map<String, dynamic> toJson() {
-    // ignore: no_leading_underscores_for_local_identifiers
-    final _data = <String, dynamic>{};
-    _data['code'] = code;
-    _data['status'] = status;
-    _data['copyright'] = copyright;
-    _data['attributionText'] = attributionText;
-    _data['attributionHTML'] = attributionHTML;
-    _data['etag'] = etag;
-    _data['data'] = data.toJson();
-    return _data;
+    final dataS = <String, dynamic>{};
+    dataS['code'] = code;
+    dataS['status'] = status;
+    dataS['copyright'] = copyright;
+    dataS['attributionText'] = attributionText;
+    dataS['attributionHTML'] = attributionHTML;
+    dataS['etag'] = etag;
+    dataS['data'] = data.toJson();
+    return dataS;
   }
 }
 
@@ -63,13 +62,13 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['offset'] = offset;
-    data['limit'] = limit;
-    data['total'] = total;
-    data['count'] = count;
-    data['results'] = results.map((e) => e.toJson()).toList();
-    return data;
+    final dataC = <String, dynamic>{};
+    dataC['offset'] = offset;
+    dataC['limit'] = limit;
+    dataC['total'] = total;
+    dataC['count'] = count;
+    dataC['results'] = results.map((e) => e.toJson()).toList();
+    return dataC;
   }
 }
 
@@ -134,6 +133,14 @@ class ResultsComics {
   late final Characters characters;
   late final Stories stories;
   late final Events events;
+
+  String get titleShort {
+    int pos = title.indexOf('#');
+    if (pos > 0) {
+      return title.substring(0, pos);
+    }
+    return title;
+  }
 
   ResultsComics.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -321,7 +328,7 @@ class Prices {
 
   Prices.fromJson(Map<String, dynamic> json) {
     type = json['type'];
-    price = json['price'];
+    price = double.parse(json['price'].toString());
   }
 
   Map<String, dynamic> toJson() {
@@ -416,7 +423,6 @@ class Items {
   Items.fromJson(Map<String, dynamic> json) {
     resourceURI = json['resourceURI'];
     name = json['name'];
-    role = json['role'];
   }
 
   Map<String, dynamic> toJson() {

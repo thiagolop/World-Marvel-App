@@ -17,15 +17,15 @@ class ApiMarvel {
     return '$_baseUrl/$_characters/$id/$_comics?ts=$_ts&apikey=$_publicKey&hash=$_hash';
   }
 
-  static String getSeries() {
-    return '$_baseUrl/$_series?ts=$_ts&apikey=$_publicKey&hash=$_hash';
+  static String getSeries({required String id}) {
+    return '$_baseUrl/$_characters/$id/$_series?ts=$_ts&apikey=$_publicKey&hash=$_hash';
   }
 
-  static String getEvents() {
-    return '$_baseUrl/$_events?ts=$_ts&apikey=$_publicKey&hash=$_hash';
+  static String getEvents({required String id}) {
+    return '$_baseUrl/$_characters/$id/$_events?ts=$_ts&apikey=$_publicKey&hash=$_hash';
   }
 
-  static String getStories() {
-    return '$_baseUrl/$_stories?ts=$_ts&apikey=$_publicKey&hash=$_hash';
+  static String getStories({required String id}) {
+    return '$_baseUrl/$_characters/$id/$_stories?ts=$_ts&apikey=$_publicKey&hash=$_hash';
   }
 }

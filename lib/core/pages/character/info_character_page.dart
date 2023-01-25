@@ -4,11 +4,17 @@ import 'package:marvelapk01/core/pages/character/widgets/circle_avatar_widget.da
 import 'package:marvelapk01/core/pages/character/widgets/description_widget.dart';
 import 'package:marvelapk01/core/pages/character/widgets/signature_widget.dart';
 import '../../models/marvel_model_characters.dart';
+import 'widgets/comics_widget.dart';
 
-class InfoCharacterPage extends StatelessWidget {
+class InfoCharacterPage extends StatefulWidget {
   const InfoCharacterPage({Key? key, required this.character}) : super(key: key);
   final Character character;
 
+  @override
+  State<InfoCharacterPage> createState() => _InfoCharacterPageState();
+}
+
+class _InfoCharacterPageState extends State<InfoCharacterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +31,7 @@ class InfoCharacterPage extends StatelessWidget {
               fit: BoxFit.fill,
             ),
           ),
-          CircleAvatarWidget(character: character),
+          CircleAvatarWidget(character: widget.character),
           Positioned(
             top: 310,
             left: 10,
@@ -36,18 +42,25 @@ class InfoCharacterPage extends StatelessWidget {
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    DescriptionWidget(character: character),
+                    DescriptionWidget(character: widget.character),
                     const SizedBox(height: 24),
-                    AdditionalInformationWidget(characterID: character.id, title: 'Comics', description: '${character.comics.available}'),
+                    ExpansionTile(title: AdditionalInformationWidget(title: 'Comics', description: '${widget.character.comics.available}'), children: [
+                      const SizedBox(height: 16),
+                      ComicsWidget(characterID: widget.character.id),
+                    ]),
                     const SizedBox(height: 24),
-                    AdditionalInformationWidget(characterID: character.id, title: 'Series', description: '${character.series.available}'),
+                    ExpansionTile(title: AdditionalInformationWidget(title: 'Series', description: '${widget.character.series.available}'), children: const [
+                      SizedBox(height: 16),
+                    ]),
                     const SizedBox(height: 24),
-                    AdditionalInformationWidget(characterID: character.id, title: 'Stories', description: '${character.stories.available}'),
+                    ExpansionTile(title: AdditionalInformationWidget(title: 'Stories', description: '${widget.character.stories.available}'), children: const [
+                      SizedBox(height: 16),
+                    ]),
                     const SizedBox(height: 24),
-                    AdditionalInformationWidget(characterID: character.id, title: 'Events', description: '${character.events.available}'),
+                    ExpansionTile(title: AdditionalInformationWidget(title: 'Events', description: '${widget.character.events.available}'), children: const [
+                      SizedBox(height: 16),
+                    ]),
                     const SizedBox(height: 24),
                     const SignatureWidget(),
                   ],

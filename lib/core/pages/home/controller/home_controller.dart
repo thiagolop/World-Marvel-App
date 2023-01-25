@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:marvelapk01/core/models/marvel_model_characters.dart';
-import '../repositories/marvel_repository_characters.dart';
-import '../repositories/marvel_repository_characters_imp.dart';
-import '../service/dio_service_imp.dart';
+import '../../../repositories/marvel_repository_characters.dart';
+import '../../../repositories/marvel_repository_characters_imp.dart';
+import '../../../service/dio_service_imp.dart';
 
-class HomeController extends ChangeNotifier {
+class HomeController with ChangeNotifier {
   final ScrollController scrollController = ScrollController();
   final MarvelRepositoryCharacters marvelRepository = MarvelRepositoryCharactersImp(DioServiceImp());
 
@@ -38,8 +38,8 @@ class HomeController extends ChangeNotifier {
     }
   }
 
-  void searchCharacter(String value) {
-    seachCharacter = listCharacter.where((element) => element.name.toLowerCase().contains(value.toLowerCase())).toList();
-    notifyListeners();
-  }
+  // void searchCharacter(String value) {
+  //   seachCharacter = listCharacter.where((element) => element.name.toLowerCase().contains(value.toLowerCase())).toList();
+  //   notifyListeners();
+  // }
 }

@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marvelapk01/core/controllers/home_controller.dart';
-
+import 'package:marvelapk01/core/pages/home/controller/home_controller.dart';
 
 import '../../../models/marvel_model_characters.dart';
 
@@ -56,7 +55,6 @@ class GridViewListWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                
               ],
             ),
           ),

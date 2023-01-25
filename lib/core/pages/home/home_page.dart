@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marvelapk01/core/pages/home/widgets/grid_view_list_widget.dart';
-import '../../controllers/home_controller.dart';
+import 'controller/home_controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

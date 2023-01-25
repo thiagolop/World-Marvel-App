@@ -10,10 +10,10 @@ class MarvelRepositoryComicsImp implements MarvelRepositoryComics {
   @override
   Future<MarvelModelComics> getComics({required String id}) async {
     try {
-      final response = await _dioService.getDio().get(ApiMarvel.getComics(id: id));
+      final response = await _dioService.getDio().get(ApiMarvel.getComics(id: id.toString()));
       return MarvelModelComics.fromJson(response.data);
     } catch (e) {
-      rethrow;
+      throw Exception(e);
     }
   }
 }

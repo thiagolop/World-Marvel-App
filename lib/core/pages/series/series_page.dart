@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 
-class SeriesPage extends StatefulWidget {
-  const SeriesPage({Key? key}) : super(key: key);
+class SeriesPage extends StatelessWidget {
 
-  @override
-  State<SeriesPage> createState() => _SeriesPageState();
-}
+  const SeriesPage({ Key? key }) : super(key: key);
 
-class _SeriesPageState extends State<SeriesPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
-      ),
-      body: Container(color: Colors.orange),
-    );
+   @override
+   Widget build(BuildContext context) {
+       return Scaffold(
+           appBar: AppBar(title: const Text(''),),
+           body: Container(),
+       );
   }
 }
