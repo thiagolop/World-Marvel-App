@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../models/marvel_model_comics.dart';
 import '../repositories/marvel_repository_comics.dart';
 import '../repositories/marvel_repository_comics_imp.dart';

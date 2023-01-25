@@ -10,11 +10,11 @@ class MarvelRepositorySeriesImp implements MarvelRepositorySeries {
 
   @override
   Future<MarvelModelSeries> getSeries({required String id}) async {
-    try {
+    // try {
       final response = await _dioService.getDio().get(ApiMarvel.getSeries(id: id.toString()));
       return MarvelModelSeries.fromJson(response.data);
-    } catch (e) {
-      throw Exception(e);
-    }
+    // } catch (e) {
+    //   throw Exception(e);
+    // }
   }
 }

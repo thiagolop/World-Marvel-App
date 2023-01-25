@@ -51,14 +51,14 @@ class Data {
   late final int limit;
   late final int total;
   late final int count;
-  late final List<Results> results;
+  late final List<ResultsStories> results;
 
   Data.fromJson(Map<String, dynamic> json) {
     offset = json['offset'];
     limit = json['limit'];
     total = json['total'];
     count = json['count'];
-    results = List.from(json['results']).map((e) => Results.fromJson(e)).toList();
+    results = List.from(json['results']).map((e) => ResultsStories.fromJson(e)).toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -72,15 +72,15 @@ class Data {
   }
 }
 
-class Results {
-  Results({
+class ResultsStories {
+  ResultsStories({
     required this.id,
     required this.title,
     required this.description,
     required this.resourceURI,
     required this.type,
     required this.modified,
-    this.thumbnail,
+    required this.thumbnail,
     required this.creators,
     required this.characters,
     required this.series,
@@ -94,7 +94,7 @@ class Results {
   late final String resourceURI;
   late final String type;
   late final String modified;
-  late final Null thumbnail;
+  late final String thumbnail;
   late final Creators creators;
   late final Characters characters;
   late final Series series;
@@ -102,14 +102,14 @@ class Results {
   late final Events events;
   late final OriginalIssue originalIssue;
 
-  Results.fromJson(Map<String, dynamic> json) {
+  ResultsStories.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     description = json['description'];
     resourceURI = json['resourceURI'];
     type = json['type'];
     modified = json['modified'];
-    thumbnail = null;
+    thumbnail = ['thumbnail'] as String;
     creators = Creators.fromJson(json['creators']);
     characters = Characters.fromJson(json['characters']);
     series = Series.fromJson(json['series']);

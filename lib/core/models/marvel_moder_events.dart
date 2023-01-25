@@ -51,14 +51,14 @@ class Data {
   late final int limit;
   late final int total;
   late final int count;
-  late final List<Results> results;
+  late final List<ResultsEvents> results;
   
   Data.fromJson(Map<String, dynamic> json){
     offset = json['offset'];
     limit = json['limit'];
     total = json['total'];
     count = json['count'];
-    results = List.from(json['results']).map((e)=>Results.fromJson(e)).toList();
+    results = List.from(json['results']).map((e)=>ResultsEvents.fromJson(e)).toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -72,8 +72,8 @@ class Data {
   }
 }
 
-class Results {
-  Results({
+class ResultsEvents {
+  ResultsEvents({
     required this.id,
     required this.title,
     required this.description,
@@ -108,7 +108,7 @@ class Results {
   late final Next next;
   late final Previous previous;
   
-  Results.fromJson(Map<String, dynamic> json){
+  ResultsEvents.fromJson(Map<String, dynamic> json){
     id = json['id'];
     title = json['title'];
     description = json['description'];

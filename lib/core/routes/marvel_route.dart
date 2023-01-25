@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:marvelapk01/core/pages/comics/comics_page.dart';
+import 'package:marvelapk01/core/pages/series/series_page.dart';
 import '../models/marvel_model_characters.dart';
 import '../models/marvel_model_comics.dart';
+import '../models/marvel_model_series.dart';
 import '../pages/character/info_character_page.dart';
 import '../pages/home/home_page.dart';
 
@@ -24,6 +26,9 @@ class MarvelRoute extends StatelessWidget {
             break;
           case '/comics':
             builder = (BuildContext context) => ComicsPage(comics: args as ResultsComics);
+            break;
+          case '/series':
+            builder = (BuildContext context) => SeriesPage(series: args as ResultsSeries);
             break;
           default:
             throw Exception('Invalid route: ${settings.name}');

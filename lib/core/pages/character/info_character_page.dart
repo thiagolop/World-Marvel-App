@@ -3,6 +3,7 @@ import 'package:marvelapk01/core/pages/character/widgets/additional_information_
 import 'package:marvelapk01/core/pages/character/widgets/circle_avatar_widget.dart';
 import 'package:marvelapk01/core/pages/character/widgets/description_widget.dart';
 import 'package:marvelapk01/core/pages/character/widgets/signature_widget.dart';
+import 'package:marvelapk01/core/pages/character/widgets/series_widget.dart';
 import '../../models/marvel_model_characters.dart';
 import 'widgets/comics_widget.dart';
 
@@ -50,9 +51,9 @@ class _InfoCharacterPageState extends State<InfoCharacterPage> {
                       ComicsWidget(characterID: widget.character.id),
                     ]),
                     const SizedBox(height: 24),
-                    ExpansionTile(title: AdditionalInformationWidget(title: 'Series', description: '${widget.character.series.available}'), children: const [
-                      SizedBox(height: 16),
-                    ]),
+                    ExpansionTile(
+                        title: AdditionalInformationWidget(title: 'Series', description: '${widget.character.series.available}'),
+                        children: [const SizedBox(height: 16), SeriesWidget(characterID: widget.character.id)]),
                     const SizedBox(height: 24),
                     ExpansionTile(title: AdditionalInformationWidget(title: 'Stories', description: '${widget.character.stories.available}'), children: const [
                       SizedBox(height: 16),
