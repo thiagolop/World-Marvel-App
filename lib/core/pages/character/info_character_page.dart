@@ -51,9 +51,10 @@ class _InfoCharacterPageState extends State<InfoCharacterPage> {
                     ComicsWidget(characterID: widget.character.id),
                   ]),
                   const SizedBox(height: 24),
-                  ExpansionTile(
-                      title: AdditionalInformationWidget(title: 'Series', description: '${widget.character.series.available}'),
-                      children: [const SizedBox(height: 16), SeriesWidget(characterID: widget.character.id)]),
+                  ExpansionTile(title: AdditionalInformationWidget(title: 'Series', description: '${widget.character.series.available}'), children: [
+                    const SizedBox(height: 16),
+                    SeriesWidget(characterID: widget.character.id),
+                  ]),
                   const SizedBox(height: 24),
                   ExpansionTile(title: AdditionalInformationWidget(title: 'Stories', description: '${widget.character.stories.available}'), children: [
                     const SizedBox(height: 16),

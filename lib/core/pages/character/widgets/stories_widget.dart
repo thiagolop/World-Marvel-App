@@ -34,39 +34,42 @@ class _StoriesWidgetState extends State<StoriesWidget> {
               itemCount: storiesController.listStories.length,
               itemBuilder: (context, index) {
                 ResultsStories stories = storiesController.listStories[index];
+                String image = '${storiesController.listStories[index].thumbnail}.${storiesController.listStories[index].thumbnail}';
                 return GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, '/stories', arguments: stories);
                   },
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Container(
-                          width: 230,
-                          height: 300,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                '${storiesController.listStories[index].thumbnail}.${storiesController.listStories[index].thumbnail}',
+                  child: Hero(
+                    tag: image,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Container(
+                            width: 230,
+                            height: 300,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  '${storiesController.listStories[index].thumbnail}.${storiesController.listStories[index].thumbnail}',
+                                ),
+                                fit: BoxFit.cover,
                               ),
-                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
-              
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        storiesController.listStories[index].titleShort.toString(),
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                        const SizedBox(height: 5),
+                        Text(
+                          storiesController.listStories[index].titleShort.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               },

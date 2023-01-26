@@ -40,39 +40,42 @@ class _ComicsWidgetState extends State<ComicsWidget> {
                 onTap: () {
                   Navigator.pushNamed(context, '/comics', arguments: comics);
                 },
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: CachedNetworkImage(
-                        imageUrl: '${comicsController.listComics[index].thumbnail.path}.${comicsController.listComics[index].thumbnail.extension}',
-                        width: 230,
-                        height: 300,
-                        fit: BoxFit.scaleDown,
-                        progressIndicatorBuilder: (context, url, progress) => const Center(
-                          child: CircularProgressIndicator(
-                            value: null,
-                            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                child: Hero(
+                  tag: comics.images,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: CachedNetworkImage(
+                          imageUrl: '${comicsController.listComics[index].thumbnail.path}.${comicsController.listComics[index].thumbnail.extension}',
+                          width: 230,
+                          height: 300,
+                          fit: BoxFit.scaleDown,
+                          progressIndicatorBuilder: (context, url, progress) => const Center(
+                            child: CircularProgressIndicator(
+                              value: null,
+                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                            ),
                           ),
+                          errorWidget: (context, url, error) => const Icon(Icons.error),
                         ),
-                        errorWidget: (context, url, error) => const Icon(Icons.error),
                       ),
-                    ),
-                    const SizedBox(height: 5),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8), bottomRight: Radius.circular(8)),
-                        color: Colors.black87,
+                      const SizedBox(height: 5),
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8), bottomRight: Radius.circular(8)),
+                          color: Colors.black87,
+                        ),
+                        child: Text(
+                          comicsController.listComics[index].titleShort,
+                          style: GoogleFonts.lato(color: Colors.white, fontSize: 18),
+                          textAlign: TextAlign.justify,
+                          overflow: TextOverflow.fade,
+                        ),
                       ),
-                      child: Text(
-                        comicsController.listComics[index].titleShort,
-                        style: GoogleFonts.lato(color: Colors.white, fontSize: 18),
-                        textAlign: TextAlign.justify,
-                        overflow: TextOverflow.fade,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               );
             },

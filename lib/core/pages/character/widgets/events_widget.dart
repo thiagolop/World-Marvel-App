@@ -35,38 +35,42 @@ class _EventsWidgetState extends State<EventsWidget> {
             itemCount: eventsController.listEvents.length,
             itemBuilder: (context, index) {
               ResultsEvents events = eventsController.listEvents[index];
+              String image = '${eventsController.listEvents[index].thumbnail?.path}.${eventsController.listEvents[index].thumbnail?.extension}';
               return GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, '/events', arguments: events);
                 },
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Container(
-                        width: 230,
-                        height: 300,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              '${eventsController.listEvents[index].thumbnail?.path}.${eventsController.listEvents[index].thumbnail?.extension}',
+                child: Hero(
+                  tag: image,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Container(
+                          width: 230,
+                          height: 300,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                '${eventsController.listEvents[index].thumbnail?.path}.${eventsController.listEvents[index].thumbnail?.extension}',
+                              ),
+                              fit: BoxFit.cover,
                             ),
-                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      eventsController.listEvents[index].title.toString(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                      const SizedBox(height: 5),
+                      Text(
+                        eventsController.listEvents[index].title.toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               );
             },

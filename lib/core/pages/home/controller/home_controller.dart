@@ -11,7 +11,6 @@ class HomeController with ChangeNotifier {
   int page = 0;
   int pageSize = 90;
   List<Character> listCharacter = [];
-  List seachCharacter = [];
   int limit = 100;
   int offset = 0;
 
@@ -37,9 +36,4 @@ class HomeController with ChangeNotifier {
       loadNextPage();
     }
   }
-
-  // void searchCharacter(String value) {
-  //   seachCharacter = listCharacter.where((element) => element.name.toLowerCase().contains(value.toLowerCase())).toList();
-  //   notifyListeners();
-  // }
 }
