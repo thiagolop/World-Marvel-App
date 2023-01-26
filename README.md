@@ -1,16 +1,17 @@
-# marvelapk01
+# marvel
 
-A new Flutter project.
+Um aplicativo Marvel contém informações sobre todos os personagens e quadrinhos da Marvel.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+https://user-images.githubusercontent.com/109871891/214935661-38337dff-e8ca-4c65-86a4-fc41b4875da5.mp4
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+# Aprendizado 
+
+. Como lidar com dados confidenciais, como chaves de API.
+. Faça chamadas de API. (DIO)
+. Como lidar com dados JSON grandes e complexos que são suficientes para a experiência do usuário instável.
+. Animação simples com Hero
+. Utilizar o widget ExpansionTile.
